@@ -12,9 +12,6 @@ void setup ()
     Interactive.make( this );
     
     //your code to initialize buttons goes here
-    
-    
-    
     setMines();
 }
 public void setMines()
