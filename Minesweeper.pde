@@ -63,7 +63,6 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage() 
 {
-    textSize(40);
     for (int r = 0; r < NUM_ROWS; r++) {
         for (int c = 0; c < NUM_COLS; c++) {
             MSButton b = buttons[r][c];
