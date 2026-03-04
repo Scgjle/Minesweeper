@@ -63,10 +63,16 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage() 
 {
-    textAlign(CENTER, CENTER);
-    textSize(64);
-    fill(400, 400, 0);
-    text("YOU WIN!", width/2, height/2);
+    for (int r = 0; r < NUM_ROWS; r++) {
+        for (int c = 0; c < NUM_COLS; c++) {
+            MSButton b = buttons[r][c];
+            b.clicked = true;
+
+            if (!mines.contains(b)) {
+                b.setLabel("W");
+            }
+        }
+    }
 }
 public boolean isValid(int r, int c)
 {
