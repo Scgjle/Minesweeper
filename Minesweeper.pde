@@ -4,6 +4,7 @@ public int NUM_COLS = 20;
 public int NUM_MINES = 45;
 private MSButton[][] buttons; //2d array of minesweeper buttons
 private ArrayList <MSButton> mines; //ArrayList of just the minesweeper buttons that are mined
+public boolean GameActive = true;
 
 void setup ()
 {
@@ -59,6 +60,7 @@ public void displayLosingMessage()
 {
     for (int i = 0; i < mines.size(); i++) { 
       MSButton b = mines.get(i); b.clicked = true;
+      GameActive = false;
     }
 }
 public void displayWinningMessage() 
@@ -73,6 +75,7 @@ public void displayWinningMessage()
             }
         }
     }
+    GameActive = false;
 }
 public boolean isValid(int r, int c)
 {
@@ -116,14 +119,14 @@ public class MSButton
     // called by manager
     public void mousePressed() 
 {
-    if (mouseButton == RIGHT) {
+    if (mouseButton == RIGHT && GameActive == true) {
         if (!clicked) {
             flagged = !flagged;
         }
         return;
     }
 
-    if (mouseButton == LEFT) {
+    if (mouseButton == LEFT && GameActive == true) {
         if (clicked || flagged) return;
 
         clicked = true;
